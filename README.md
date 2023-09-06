@@ -2,21 +2,22 @@
  ejercicio meli
 
 Precondiciones:
-# Se instala mysql en el equipo local, yo instale el siguente ejecutable en windows:
+# Se instala mysql en el equipo local, yo instale el siguiente ejecutable en windows:
 mysql-installer-community-8.0.34.0.msi
-# El usuario "root" debe tener la contraseña "12345678" o de lo contrario modificar el punto de conexion el fichero db.py con las credenciales correctas.
+# El usuario "root" debe tener la contraseña "12345678" o de lo contrario modificar el punto de conexión el fichero db.py con las credenciales correctas.
 # Crear una base de datos llamada "challenge"
-# instalar python en el equipo local, podemos instalar Python en powershell escribiendo "python" esto nos llevará a la Microsoft Store y desde ahi lo instalaremos.
+# Instalar python en el equipo local, podemos instalar Python en powershell escribiendo "python" esto nos llevará a la Microsoft Store y desde ahí lo instalaremos.
+# Ubicamos la carpeta del proyecto, en este caso (api-ppm), si dentro de esta carpeta encontramos con una carpeta llamada "venv" la borramos para evitar algún conflicto luego con el entorno virtual que crearemos.
 # Abrimos la carpeta del proyecto en Visual Studio Code
-# Abilitar un entorno virtual de python, para esto habririamos una nuava terminal en la raiz del proyecto y ejecutamos:
+# Abilitar un entorno virtual de python, para esto abriríamos una nueva terminal en la raíz del proyecto y ejecutamos:
 python -m venv venv
-# Para activar el entorno virtual(en windows), ir a la ruta:
+# Para activar el entorno virtual (en windows), ir a la ruta:
 cd venv\Scripts
-# Tengamos en cuenta ejecutar el siguiente scrpts de powershell (si no esta habilitado, habilitamos la ejecusion de scrpts) con el comando: 
+# Tengamos en cuenta ejecutar el siguiente script de powershell (si no está habilitado, habilitamos la ejecución de scripts) con el comando: 
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-# Luego acivamos el entorno virtual ejecutando el siguente script de powershell:
+# Luego activamos el entorno virtual ejecutando el siguiente script de powershell:
 activate.ps1
-# Volver a la ruta de la aplicacion
+# Volver a la ruta de la aplicación
 cd..
 cd..
 # Instalar algunos paquetes que serán necesarios
@@ -25,9 +26,9 @@ pip install uvicorn fastapi sqlalchemy pymysql cryptography httpx
 uvicorn main:app --reload
 
 
-# Como la aplicacion, desarrollada con FastAPI nos brinda una interfaz que nos permite interactuar con las funciones implementadas a traves de la URL:
+# Como la aplicación, desarrollada con FastAPI nos brinda una interfaz que nos permite interactuar con las funciones implementadas a través de la URL:
 http://localhost:8000/docs
 # La base de datos se debe llenar con datos, para esto podemos ejecutar directamente en el navegador la siguiente URL:
 http://localhost:8000/agregar/pais/automatico
-# La funcionalidad requerida para la aplicacion se puede consultar a traves de la siguente URL, modificando el nombre del pais que se desea consultar:
+# La funcionalidad requerida para la aplicación se puede consultar a través de la siguiente URL, modificando el nombre del país que se desea consultar:
 http://localhost:8000/?nombre_pais=cuba
