@@ -8,7 +8,7 @@ mysql-installer-community-8.0.34.0.msi
 #### Crear una base de datos llamada "challenge"
 #### Instalar python en el equipo local, podemos instalar Python en powershell escribiendo "python" esto nos llevará a la Microsoft Store y desde ahí lo instalaremos.
 #### Ubicamos la carpeta del proyecto, en este caso (api-ppm), si dentro de esta carpeta encontramos con una carpeta llamada "venv" la borramos para evitar algún conflicto luego con el entorno virtual que crearemos.
-#### Abrimos la carpeta del proyecto en Visual Studio Code
+#### Abrimos la carpeta del proyecto en Visual Studio Code.
 #### Abilitar un entorno virtual de python, para esto abriríamos una nueva terminal en la raíz del proyecto y ejecutamos:
 python -m venv venv
 #### Para activar el entorno virtual (en windows), ir a la ruta:
