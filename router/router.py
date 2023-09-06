@@ -13,7 +13,7 @@ pais = APIRouter()
 def obtener_datos_exigidos_en_el_challenge(nombre_pais: str):
     pais = conn.execute(paises.select().where(paises.c.nombre_pais == nombre_pais)).first()
     if pais != None:
-        poblacionMundial = 8000000000 #Asumiendo este valor como total de poblacion mundial
+        poblacionMundial = 8000000000    #Asumiendo este valor como total de poblacion mundial
         porcentaje = (pais[2]*100)/poblacionMundial
         siguentePaisMasPoblado = conn.execute(paises.select().where(paises.c.poblacion > pais[2]).order_by(paises.c.poblacion)).first()
         conn.commit()
