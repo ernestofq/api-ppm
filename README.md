@@ -17,7 +17,7 @@ cd venv\Scripts
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 #### Luego activamos el entorno virtual ejecutando el siguiente script de powershell:
 activate.ps1
-#### Volver a la ruta de la aplicación
+#### Volver a la ruta de la aplicación.
 cd..
 cd..
 #### Instalar algunos paquetes que serán necesarios
