@@ -42,6 +42,7 @@ def llenar_bd():
         respuesta = cliente.get(url)
         if respuesta.status_code == 200:
             respuesta_json = respuesta.json()
+            temp = 1
             for elemento in respuesta_json:
                 if "name" in elemento and "common" in elemento["name"]:
                     nombrePais = elemento["name"]["common"]
@@ -56,8 +57,12 @@ def llenar_bd():
                 else:
                     poblacionPais = "Población desconocida"
                 if conn.execute(paises.select().where(paises.c.nombre_pais == nombrePais)).first() == None:
-                    conn.execute(paises.insert().values((nombrePais, capitalPais, poblacionPais))) 
+                    conn.execute(paises.insert().values((nombrePais, capitalPais, poblacionPais)))
+                    temp = 2
                 conn.commit()
-            return HTTPException(status_code=respuesta.status_code, detail="Datos recopilados y salvados en Base de Datos.")
+            if temp == 1:
+                return HTTPException(status_code=respuesta.status_code, detail="La Base de Datos no necesitaba actualización")
+            else:
+                return HTTPException(status_code=respuesta.status_code, detail="Datos recopilados y salvados en Base de Datos.")
         else:
             return HTTPException(status_code=respuesta.status_code, detail="Error al intentar consultar el sitio restcountries.com.")
