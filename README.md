@@ -2,10 +2,10 @@
  ejercicio de meli
 
 Precondiciones:
-### Se instala mysql en el equipo local, yo instale el siguiente ejecutable en windows:
+###### Se instala mysql en el equipo local, yo instale el siguiente ejecutable en windows:
 mysql-installer-community-8.0.34.0.msi
-### El usuario "root" debe tener la contraseña "12345678" o de lo contrario modificar el punto de conexión el fichero db.py con las credenciales correctas.
-### Crear una base de datos llamada "challenge"
+##### El usuario "root" debe tener la contraseña "12345678" o de lo contrario modificar el punto de conexión el fichero db.py con las credenciales correctas.
+#### Crear una base de datos llamada "challenge"
 ### Instalar python en el equipo local, podemos instalar Python en powershell escribiendo "python" esto nos llevará a la Microsoft Store y desde ahí lo instalaremos.
 ### Ubicamos la carpeta del proyecto, en este caso (api-ppm), si dentro de esta carpeta encontramos con una carpeta llamada "venv" la borramos para evitar algún conflicto luego con el entorno virtual que crearemos.
 ### Abrimos la carpeta del proyecto en Visual Studio Code
