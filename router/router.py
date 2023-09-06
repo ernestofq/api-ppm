@@ -29,12 +29,13 @@ def obtener_datos_exigidos_en_el_challenge(nombre_pais: str):
 @pais.post("/agregar/pais/manual")
 def agregar_pais_manualmente(datosPais: PaisSchema):
     nuevoPais = datosPais.dict()
+    #me falta validar que el dato que voy a insertar no exista
     result = conn.execute(paises.insert().values((datosPais.nombre_pais, datosPais.capital, datosPais.poblacion)))
     conn.commit()
     return nuevoPais
 """
 
-@pais.post("/agregar/pais/automatico")
+@pais.get("/agregar/pais/automatico")
 def llenar_bd():
     url = f"https://restcountries.com/v3.1/all"
     with httpx.Client() as cliente:
