@@ -9,12 +9,14 @@ import httpx
 pais = APIRouter()
 
 
-@pais.get("/")
+@pais.get("/", summary="Obtener datos solicitados según requerimiento.")
 def obtener_datos_exigidos_en_el_challenge(nombre_pais: str):
     pais = conn.execute(paises.select().where(paises.c.nombre_pais == nombre_pais)).first()
     if pais != None:
-        poblacionMundial = 8000000000    #Asumiendo este valor como total de poblacion mundial
+        poblacionMundial = 8000000000    #Asumiendo este valor como total de poblacion mundial, se podria calcular sumando la poblacion de todos los paises en la BD, pero si la BD estubiera incompleta el resultado del porcentaje que corresponde a un pais podria alejarse demasiado de la realidad ya que se calcula en base al total de poblacion
         porcentaje = (pais[2]*100)/poblacionMundial
+        porcentaje = str(porcentaje)
+        porcentaje = porcentaje+"%"
         siguentePaisMasPoblado = conn.execute(paises.select().where(paises.c.poblacion > pais[2]).order_by(paises.c.poblacion)).first()
         conn.commit()
         if siguentePaisMasPoblado == None:
@@ -26,7 +28,7 @@ def obtener_datos_exigidos_en_el_challenge(nombre_pais: str):
         return HTTPException(status_code=404, detail="Compruebe que haya escrito correctamente el nombre del país. Este nombre de país no se encuentra en nuestra base.")
 
 """
-@pais.post("/agregar/pais/manual")
+@pais.post("/agregado/manual")
 def agregar_pais_manualmente(datosPais: PaisSchema):
     nuevoPais = datosPais.dict()
     #me falta validar que el dato que voy a insertar no exista
@@ -35,7 +37,7 @@ def agregar_pais_manualmente(datosPais: PaisSchema):
     return nuevoPais
 """
 
-@pais.get("/agregar/pais/automatico")
+@pais.get("/agregado/automatico", summary="LLenar la BD con los datos de los paises.")
 def llenar_bd():
     url = f"https://restcountries.com/v3.1/all"
     with httpx.Client() as cliente:

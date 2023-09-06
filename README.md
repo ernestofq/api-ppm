@@ -1,5 +1,5 @@
 ## api-ppm
- ejercicio de meli
+Desarrollo solicitado por MeLi.
 
 Precondiciones:
 #### Se instala mysql en el equipo local, yo instale el siguiente ejecutable en windows:
