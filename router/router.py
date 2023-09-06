@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from fastapi.responses import RedirectResponse
 from schema.pais_schema import PaisSchema
 from config.db import conn
 from model.paises import paises
@@ -8,8 +9,12 @@ import httpx
 
 pais = APIRouter()
 
+@pais.get("/")
+def redirigir_a_docs():
+    return RedirectResponse("/docs")
+    
 
-@pais.get("/", summary="Obtener datos solicitados según requerimiento.")
+@pais.get("/query", summary="Obtener datos solicitados según requerimiento.")
 def obtener_datos_exigidos_en_el_challenge(nombre_pais: str):
     pais = conn.execute(paises.select().where(paises.c.nombre_pais == nombre_pais)).first()
     if pais != None:

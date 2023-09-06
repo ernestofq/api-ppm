@@ -22,8 +22,8 @@ cd..
 cd..
 #### Instalar algunos paquetes que serán necesarios
 pip install uvicorn fastapi sqlalchemy pymysql cryptography httpx
-#### Ejecutar el servidor web uvicorn que instalamos
-uvicorn main:app --reload
+#### Ejecutar el servidor web uvicorn que instalamos.
+uvicorn main:app --host 0.0.0.0 --reload
 #### En este punto estaríamos listos para editar nuestro codigo y ademas probar las funcionalidades.
 
 
