@@ -24,7 +24,7 @@ cd..
 pip install uvicorn fastapi sqlalchemy pymysql cryptography httpx
 #### Ejecutar el servidor web uvicorn que instalamos.
 uvicorn main:app --host 0.0.0.0 --reload
-### Por si se llegara a necesitar en la parpeta del proyecto se encuentra el fichero "requerimientos.txt" que muestra los paquetes y dependencias que son necesarios estén instalados.
+#### Por si se llegara a necesitar en la carpeta del proyecto se encuentra el fichero "requerimientos.txt" que muestra los paquetes y dependencias que son necesarios estén instalados.
 #### En este punto estaríamos listos para editar nuestro codigo y ademas probar las funcionalidades.
 
 
