@@ -9,11 +9,12 @@ import httpx
 
 pais = APIRouter()
 
+#ruta raíz, redireccionada a la interfaz que muestra la documentación
 @pais.get("/", tags=["oculta"], include_in_schema=False)
 def redirigir_a_docs():
     return RedirectResponse("/docs")
 
-
+# implementación de la ruta que da respuesta al ejercicio solicitado
 @pais.get("/query", summary="Obtener datos solicitados según requerimiento.")
 def obtener_datos_exigidos_en_el_challenge(nombre_pais: str):
     pais = conn.execute(paises.select().where(paises.c.nombre_pais == nombre_pais)).first()
@@ -32,16 +33,8 @@ def obtener_datos_exigidos_en_el_challenge(nombre_pais: str):
     else:
         return HTTPException(status_code=404, detail="Compruebe que haya escrito correctamente el nombre del país. Este nombre de país no se encuentra en nuestra base.")
 
-"""
-@pais.post("/agregado/manual")
-def agregar_pais_manualmente(datosPais: PaisSchema):
-    nuevoPais = datosPais.dict()
-    #me falta validar que el dato que voy a insertar no exista
-    result = conn.execute(paises.insert().values((datosPais.nombre_pais, datosPais.capital, datosPais.poblacion)))
-    conn.commit()
-    return nuevoPais
-"""
 
+# implementación de la ruta para la recolección y llenado de datos en la base de datos
 @pais.get("/agregado/automatico", summary="LLenar la BD con los datos de los paises.")
 def llenar_bd():
     url = f"https://restcountries.com/v3.1/all"
