@@ -1,7 +1,7 @@
 ## api-ppm
 Desarrollo solicitado por MeLi.
 
-Precondiciones:
+Precondiciones para diponibilizar el entorno de desarrollo de esta aplicación:
 #### Se instala mysql en el equipo local, yo instale el siguiente ejecutable en windows:
 mysql-installer-community-8.0.34.0.msi
 #### El usuario "root" debe tener la contraseña "12345678" o de lo contrario modificar el punto de conexión el fichero db.py con las credenciales correctas.
@@ -33,3 +33,6 @@ http://localhost:8000/docs
 http://localhost:8000/agregar/pais/automatico
 #### La funcionalidad requerida para la aplicación se puede consultar a través de la siguiente URL, modificando el nombre del país que se desea consultar:
 http://localhost:8000/?nombre_pais=cuba
+
+## ¡¡La aplicacion ya se encuantra disponible de manera ONLINE en la siguiente URL!!
+http://5c1504635f74.sn.mynetname.net:34203

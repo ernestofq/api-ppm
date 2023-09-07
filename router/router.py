@@ -9,10 +9,10 @@ import httpx
 
 pais = APIRouter()
 
-@pais.get("/")
+@pais.get("/", tags=["oculta"], include_in_schema=False)
 def redirigir_a_docs():
     return RedirectResponse("/docs")
-    
+
 
 @pais.get("/query", summary="Obtener datos solicitados según requerimiento.")
 def obtener_datos_exigidos_en_el_challenge(nombre_pais: str):
